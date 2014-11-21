@@ -20,24 +20,24 @@ Lita.configure do |config|
   # appropriate gem to the Gemfile.
   config.robot.adapter = :slack
 
-  config.http.host = "xserve.nacswildcats.org"
+  config.http.host = ENV['SERVERHOST']
   config.http.port = 8181
 
-  config.adapter.incoming_token = "WIvCFU9wakkaohmQOZsbelAC"
-  config.adapter.team_domain = "nacstechdept"
-  config.adapter.incoming_url = "https://hooks.slack.com/services/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"
+  config.adapter.incoming_token = ENV['SLACK_INC_TOKEN']
+  config.adapter.team_domain = ENV['SLACK_TEAM_DOMAIN']
+  config.adapter.incoming_url = ENV['SLACK_INC_URL']
   config.adapter.username = "jarvis"
 
-  config.handlers.slack_handler.webhook_token = "WIvCFU9wakkaohmQOZsbelAC"
-  config.handlers.slack_handler.team_domain = "nacstechdept"
+  config.handlers.slack_handler.webhook_token = ENV['SLACK_INC_TOKEN']
+  config.handlers.slack_handler.team_domain = ENV['SLACK_TEAM_DOMAIN']
 
   ## Example: Set options for the chosen adapter.
   # config.adapter.username = "myname"
   # config.adapter.password = "secret"
 
   ## Example: Set options for the Redis connection.
-  config.redis.host = "127.0.0.1"
-  config.redis.port = 10356
+  config.redis.host = ENV['REDIS_HOST']
+  config.redis.port = ENV['REDIS_PORT']
 
   ## Example: Set configuration for any loaded handlers. See the handler's
   ## documentation for options.
